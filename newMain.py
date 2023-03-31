@@ -59,7 +59,7 @@ if os.path.exists(image_path):
 
         image_on_row = st.columns(len(images))
         for i in range(len(images)):
-            image_on_row[i].image(images[i], width=450)
+            image_on_row[i].image(images[i], width=350)
 
     def binary_img():
         st.write("Binary")
@@ -73,7 +73,7 @@ if os.path.exists(image_path):
 
         image_on_row = st.columns(len(images))
         for i in range(len(images)):
-            image_on_row[i].image(images[i], width=450)
+            image_on_row[i].image(images[i], width=350)
 
     def dilation_img():
         st.write("Dilation")
@@ -91,7 +91,7 @@ if os.path.exists(image_path):
 
         image_on_row = st.columns(len(images))
         for i in range(len(images)):
-            image_on_row[i].image(images[i], width=450)
+            image_on_row[i].image(images[i], width=350)
 
     def erosion_img():
         st.write("Erosion")
@@ -109,7 +109,7 @@ if os.path.exists(image_path):
 
         image_on_row = st.columns(len(images))
         for i in range(len(images)):
-            image_on_row[i].image(images[i], width=450)
+            image_on_row[i].image(images[i], width=350)
 
     def opening_img():
         st.write("Opening")
@@ -126,7 +126,7 @@ if os.path.exists(image_path):
 
         image_on_row = st.columns(len(images))
         for i in range(len(images)):
-            image_on_row[i].image(images[i], width=450)
+            image_on_row[i].image(images[i], width=350)
 
     def closing_img():
         st.write("Closing")
@@ -144,7 +144,7 @@ if os.path.exists(image_path):
 
         image_on_row = st.columns(len(images))
         for i in range(len(images)):
-            image_on_row[i].image(images[i], width=450)
+            image_on_row[i].image(images[i], width=350)
         
 
 
@@ -168,8 +168,7 @@ if os.path.exists(image_path):
 def ocr_core(img):
    if st.button('OCR'):
     with PyTessBaseAPI(path='C:/Users/User/anaconda3/share/tessdata_best-main',lang="tha+eng") as api:
-        im_ocr = Image.fromarray(img)
-        api.SetImage(im_ocr)
+        api.SetImageFile(img)
         text = api.GetUTF8Text()
         text_array = []
         text_array.append(text.replace("\n", " "))
